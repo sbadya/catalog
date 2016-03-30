@@ -1,0 +1,10 @@
+extends layout.jade
+block title
+	title(ng-bind="title.text")
+block content
+	ng-include(src="outerPartial")
+	script(src="/vendor/bower_components/angular/angular.min.js")
+	script(src="/js/controllers/controllers.js")
+	script(src="/js/services/services.js")
+	script(src="/js/filters/filters.js")
+	script(src="/js/app.js")

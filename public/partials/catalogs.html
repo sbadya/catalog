@@ -1,0 +1,68 @@
+<div class="catalogs" ng-controller="catalogsCtrl" ng-init="title.text='Справочники';">
+	<div class="overlay" ng-init="isHideOverlay=true;" ng-hide="isHideOverlay;"></div>
+	<div class="leftbar">
+		<p><a href="{{url}}/types" ng-click="catalogType = 'types'; getItems(url + '/types', catalogType);">Тип подразделения</a></p>
+		<p><a href="{{url}}/managers" ng-click="catalogType = 'managers'; getItems(url + '/managers', catalogType);">Управляющие</a></p>
+	</div>
+	<div class="rightbar">
+		<div class="catalog-content" ng-show="catalogType === 'types' || catalogType === 'managers';">
+			<button ng-click="isHideOverlay=false; catalogType === 'types' ? isHideType = false : isHideManager = false;">Добавить</button>
+			<button ng-disabled="!selected" ng-click="deleteItem(url + '/' + catalogType, catalogType, selected)">Удалить</button>
+			<div class="table-wrap">
+				<table class="content">
+					<thead ng-show="catalogType === 'managers' && items.managers.length > 0">
+						<tr>
+							<td>Фамилия</td>
+							<td>Имя</td>
+							<td>Отчество</td>
+						</tr>
+					</thead>
+					<tbody ng-show="catalogType === 'types'">
+						<tr ng-repeat="type in items.types" ng-click="select(type)" ng-class="selected === type ? 'selected' : '' ">
+							<td>{{type.title}}</td>
+						</tr>
+					</tbody>
+					<tbody ng-show="catalogType === 'managers'">
+						<tr ng-repeat="manager in items.managers" ng-click="select(manager)" ng-class="selected === manager ? 'selected' : '' ">
+							<td>{{manager.surname}}</td>
+							<td>{{manager.name}}</td>
+							<td>{{manager.patronymic}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="dialogs">
+		<div class="type-add-dialog" ng-init="isHideType = true" ng-hide="isHideType">
+			<span class="close" ng-click="isHideOverlay=true; isHideType = true"></span>
+			<h3>Добавить тип</h3>
+			<form name="addTypeForm">
+				<p class=type>
+					<label>Тип</label>
+					<input type="text" ng-model="type.title" />	
+				</p>
+				<p class="add"><button ng-click="addItem(url + '/types', catalogType, type)">Добавить</button></p>
+			</form>
+		</div>
+		<div class="manager-add-dialog" ng-init="isHideManager = true" ng-hide="isHideManager">
+			<span class="close" ng-click="isHideOverlay=true; isHideManager = true"></span>
+			<h3>Добавить руководителя</h3>
+			<form method="post">
+				<p class="surname">
+					<label>Фамилия</label>
+					<input type="text" ng-model="manager.surname" />
+				</p>
+				<p class="name">
+					<label>Имя</label>
+					<input type="text" ng-model="manager.name" />
+				</p>
+				<p class="patronymic">
+					<label>Отчество</label>
+					<input type="text" ng-model="manager.patronymic" />
+				</p>
+				<p class="add"><button ng-click="addItem(url + '/managers', catalogType, manager)">Добавить</button></p>
+			</form>
+		</div>
+	</div>
+</div>

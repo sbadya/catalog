@@ -1,0 +1,127 @@
+<div class="organizations" ng-controller="organizationsCtrl" ng-init="title.text='Подразделения'">
+	<div class="overlay" ng-init="isHideOverlay=true" ng-hide="isHideOverlay"></div>
+	<div class="leftbar">
+		<button ng-disabled="!org._id" ng-click="updateItem(url + '/' + org._id, org)">Обновить</button>
+		<button ng-disabled="!org._id" ng-click="deleteItem(url + '/' + org._id, org)">Удалить</button>
+		<div class="outer">
+			<div class="list">
+				<p ng-repeat="item in items.organizations"><a href="{{url}}/{{item._id}}" ng-click="getItem(url + '/' + item._id)">{{item.title}}</a></p>
+			</div>
+		</div>
+	</div>
+	<div class="rightbar">
+		<form name="info" novalidate method="post">
+			<p class="org-name">
+				<input type="text" name="orgTitleField" ng-model="org.title" placeholder ="Наименование организации" required />
+			</p>
+			<div class="error" ng-show="info.orgTitleField.$error.required && info.orgTitleField.$dirty">
+				<span>Данное поле необходимо обязательно заполнить!</span>
+			</div>
+			<div class="clear">
+				<p class="org-info">
+					<label>Сведения</label>
+					<textarea name="orgInfoField" ng-model="org.info" cols="40" rows="5" placeholder="Сведения о организации"></textarea>
+				</p>
+				<div class="contacts">
+					<p class="address">
+						<label>Адрес</label>
+						<input type="text" name="addressField" ng-model="org.address" />
+					</p>
+					<p class="phone">
+						<label>Телефон</label>
+						<input type="text" name="phoneField" ng-model="org.phone" />
+					</p>
+				</div>
+			</div>
+			<p class="empls-num">
+				<label>Количество сотрудников</label>
+				<input type="text" name="emplsNumField" ng-model="org.num" ng-pattern="/^\d*$/" />
+			</p>
+			<div class="error" ng-show="info.emplsNumField.$error.pattern && info.emplsNumField.$dirty">
+				<span>Данное поле должно содержать числовое значение!</span>
+			</div>
+			<p class="other-info">
+				<label>Дополнительная информация</label>
+				<textarea name="otherInfoField" ng-model="org.other" cols="60" rows="5" placeholder="Дополнительная информация"></textarea>
+			</p>
+			<hr />
+			<p class="org-type">
+				<label>Тип</label>
+				<input type="text" name="orgTypeField" value="{{org.type.title}}" placeholder="Выбор из справочника" readonly />
+				<button ng-click="isHideOverlay=false; isHideTypeDialog = false; showCatalogItems(catalogsUrl + '/types' ,'types');">...</button>
+			</p>
+			<div class="clear">
+				<p class="org-manager">
+					<label>Руководитель</label>
+					<input type="text" name="orgManagerField" value="{{org.manager | editManager}}" placeholder="Выбор из справочника" readonly />
+					<button ng-click="isHideOverlay=false; isHideManagerDialog = false; showCatalogItems(catalogsUrl + '/managers', 'managers');">...</button>
+				</p>
+				<p class="date">
+					<label>Дата создания</label>
+					<input type="text" name="dateField" ng-model="org.date" placeholder="02.05.1988" ng-pattern=/^(?:0[1-9]|[1-2][0-9]|(?:3[0-1](?!\.02)))\.(?:0[1-9]|1[0-2])\.\d{4}$/ />
+				</p>
+				<div class="error date-error" ng-show="info.dateField.$error.pattern && info.dateField.$dirty">
+					<span>Дата не соответствует формату!</span>
+				</div>
+			</div>
+			<p class="save">
+				<button ng-disabled="info.$invalid || org._id" ng-click="addItem(org, info)">Добавить</button>
+			</p>
+		</form>
+	</div>
+	<div class="dialogs">
+		<div class="type-dialog" ng-init="isHideTypeDialog = true" ng-hide="isHideTypeDialog">
+			<span class="close" ng-click="isHideTypeDialog = true; isHideOverlay=true;"></span>
+			<h3>Выбрать тип</h3>
+			<div class="search">
+				<input type="text" class="search" ng-model="searchType" placeholder="Поиск по вхождению" />
+				<button>Найти</button>
+			</div>
+			<div class="types">
+				<div class="wrap">
+					<table>
+						<tbody>
+							<tr ng-repeat="type in items.types | filterTypes : searchType" ng-click="select(type)" ng-class="selected === type ? 'selected' : '' ">
+								<td>{{type.title}}</td>
+							</tr>	
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="check">
+				<button ng-click="check(selected, 'type')">Выбрать</button>
+			</div>
+		</div>
+		<div class="manager-dialog" ng-init="isHideManagerDialog = true" ng-hide="isHideManagerDialog">
+			<span class="close" ng-click="isHideManagerDialog = true; isHideOverlay=true;"></span>
+			<h3>Выбрать сотрудника</h3>
+			<div class="search">
+				<input type="text" ng-model="searchManager" class="search" placeholder="Поиск по вхождению" />
+				<button>Найти</button>	
+			</div>
+			<div class="managers">
+				<div class="wrap">
+					<table>
+						<thead ng-show="items.managers.length > 0">
+							<tr>
+								<td>Фамилия</td>
+								<td>Имя</td>
+								<td>Отчество</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="manager in items.managers | filterManagers : searchManager" ng-click="select(manager)" ng-class="selected === manager ? 'selected' : '' ">
+								<td>{{manager.surname}}</td>
+								<td>{{manager.name}}</td>
+								<td>{{manager.patronymic}}</td>
+							</tr>
+						</tbody>
+					</table>			
+				</div>
+			</div>
+			<div class="check">
+				<button ng-click="check(selected, 'manager')">Выбрать</button>
+			</div>
+		</div>
+	</div>
+</div>

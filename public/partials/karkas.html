@@ -1,0 +1,7 @@
+<div class="karkas">
+	<ul class="menu">
+		<li ng-click="loadPartial('organizations')" ng-class="activeItem === 'organizations' ? 'active' : ''">Подразделения</li>
+		<li ng-click="loadPartial('catalogs')" ng-class="activeItem === 'catalogs' ? 'active' : ''">Справочники</li>
+	</ul>
+	<div class="partial" ng-include="innerPartial"></div>
+</div>

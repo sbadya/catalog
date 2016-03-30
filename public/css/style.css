@@ -1,0 +1,393 @@
+* {
+	margin: 0; padding: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+hr {
+	margin: 0 0 15px 0;
+}
+
+input, textarea {
+	border: 2px solid #242424; padding: 1px 3px;
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+textarea {
+	resize: none;
+}
+
+button {
+	width: 85px; border: 2px solid #242424; border-radius: 8px; height: 26px; cursor: pointer;
+}
+
+input {
+	height: 25px;
+}
+
+.clear {
+	overflow: hidden;
+}
+
+html {
+	min-height: 100%;
+}
+
+body {
+	min-width: 1000px; font-family: Arial; height: 100%;
+}
+
+img {
+	border: none;
+}
+
+/* Catalog's form */
+
+.karkas {
+	width: 980px; height: 450px; text-align: center; border: 2px solid #242424; margin: 100px auto;
+	text-align: left;
+}
+
+/* Top */
+.karkas ul.menu {
+	text-align: left; overflow: hidden; margin: -27px 0 0 -2px;
+}
+
+.karkas ul.menu li {
+	float: left; margin: 0 7px 0 0; padding: 3px;
+	border: 2px solid #242424; border-bottom: none; cursor: pointer;
+}
+
+.menu li.active {
+	background: #ddd;
+}
+
+/* Organizations*/
+.organizations {
+	height: 452px; position: relative;
+}
+
+.organizations .leftbar, .catalogs .leftbar {
+	width: 290px; height: 100%; border-right: 2px solid #242424;
+	float: left;
+}
+
+.organizations button {
+	margin: 10px 0 10px 5px;
+}
+
+.organizations .outer {
+	width: 100%; height: 404px; border-top: 2px solid #242424;
+	overflow: auto; 
+}
+
+.outer .list {
+	border-bottom: 2px solid #242424;
+}
+
+
+.list p a {
+	text-decoration: none; display: block; padding: 3px 0;
+	color: #242424;
+}
+
+.list p a:hover {
+	background: #eee;
+}
+
+.organizations .rightbar, .catalogs .rightbar {
+	float: left; width: 688px; height: 100%;
+}
+
+.organizations form {
+	padding: 10px; height: 432px;
+}
+
+form label {
+	font-size: 12px; vertical-align: top; margin: 3px 5px 0 0;
+	display:inline-block; width: 95px; text-align: right;
+}
+
+form p {
+	margin: 0 0 15px 0;
+}
+
+.organizations form button {
+	width: auto; margin: 0;
+}
+
+form .org-name input {
+	width: 100%;
+}
+
+form .org-info {
+	float: left;
+}
+
+.org-info textarea {
+	width: 258px;
+}
+
+form .contacts {
+	float: right;
+}
+
+.empls-num label {
+	margin-top: 0; 
+}
+
+.empls-num input {
+	width: 100px;
+}
+
+.other-info textarea {
+	width: 564px;
+}
+
+form .org-type input {
+	width: 160px;
+}
+
+form .org-manager {
+	float: left; margin: 0 20px 0 0;
+}
+
+.org-manager input {
+	width: 160px;
+}
+
+form .date {
+	float: left; margin-right: 15px;
+}
+
+.date input {
+	width: 100px;
+}
+
+form .save {
+	text-align: right;
+}
+
+
+/* Catalogs*/
+div.catalogs {
+	height: 452px; position: relative;
+}
+
+.catalogs a {
+	display: block; color: #242424; text-decoration: none; border-bottom: 2px solid #242424;
+	margin: 2px 0 0 0; padding: 5px;
+}
+
+.catalogs a:hover {
+	background: #eee;
+}
+
+/* Catalog's content */
+
+div.catalog-content {
+	height: 100%;
+}
+
+.catalog-content button {
+	margin: 5px 0 0 5px;
+}
+
+.table-wrap {
+	height: 404px;  overflow: auto; margin: 17px 0 0 0;
+}
+
+.catalog-content table {
+	width: 100%; border-collapse: collapse;
+}
+
+.catalog-content table thead {
+	font-weight: bold;
+}
+
+.catalog-content table tr {
+	background: #eee; cursor: pointer;
+}
+
+.catalog-content table tr:nth-child(odd) {
+	background: #ddd;
+}
+
+.catalog-content table td {
+	border: 1px solid #242424; padding: 3px; height: 20px;
+}
+
+.catalog-content table td:first-child  {
+	border-left: none;
+}
+
+.catalog-content table td:last-child {
+	 border-right: none;
+}
+
+/* index Page */
+.catalog {
+	padding: 10px; color: #242424;
+}
+
+.catalog h1 {
+	text-align: center; font-size: 25px;
+}
+
+.catalog h3 {
+	font-size: 20px; margin-top: 10px;
+}
+
+.catalog p {
+	margin: 10px 0 0 0; font-size: 17px; color: #242424;
+}
+
+.catalog p span {
+	font-weight: bold;
+}
+
+.catalog ol {
+	margin: 5px 0 0 15px;
+}
+
+.catalog ol li {
+	padding: 5px 0; font-style: italic;
+}
+
+.catalog a {
+	display: inline-block; margin-top: 5px; text-decoration: none;
+	color: red;
+}
+
+.catalog a:hover {
+	text-decoration: underline;
+}
+
+/* AngularJS validation styles */
+.ng-invalid.ng-dirty {
+	border-color: red;	
+}
+
+form .error {
+	margin: -15px 0 5px 0;
+}
+form .error span {
+	font-size: 12px; color: red;
+}
+
+form .date-error {
+	overflow: hidden; margin: 0;
+}
+
+/*Dialog Windows*/
+.dialogs h3 {
+	font-size: 13px; border: 2px solid #242424; padding: 5px 10px;
+}
+
+.overlay {
+	position: fixed; width: 100%; height: 100%; background: #fff; top: 0; left: 0; opacity: 0.9;
+}
+
+.dialogs .close {
+	position: absolute; top: 0; right: 0; width: 25px; height: 26px;
+	background: url("/images/close-bg-sprite.png") no-repeat 0 0;
+}
+
+.dialogs .close:hover {
+	background-position: 0 -28px;
+}
+
+.dialogs .search, .dialogs .check {
+	border-left: 2px solid #242424; border-right: 2px solid #242424;
+}
+
+.dialogs .check {
+	border-bottom: 2px solid #242424; text-align: right; padding-right: 10px;
+}
+
+.dialogs input {
+	border-radius: 7px; width: 180px; margin: 0 0 0 10px;
+}
+
+.dialogs .wrap {
+	min-height: 100px; border-right: 1px solid #242424;
+}
+
+.dialogs table {
+	width: 100%; border-collapse: collapse;
+}
+
+.dialogs table tr {
+	border-bottom: 2px solid #242424; cursor: pointer;
+}
+
+.dialogs table tr:last-child {
+	border-bottom: none;
+}
+
+.dialogs table tr td {
+	padding: 0 2px;
+}
+
+.type-dialog, .manager-dialog {
+	width: 370px; height: 210px; position: absolute; left: 50%; top: 50%; margin: -105px 0 0 -185px;
+}
+
+.type-dialog table tr:nth-child(odd) {
+	background: #ddd;
+}
+
+.manager-dialog thead tr {
+	border-bottom: 2px solid #242424 !important;
+	background: #ddd;
+}
+
+.manager-dialog table tr:nth-child(even) {
+	background: #ddd;
+}
+
+.types, .managers {
+	height: 85px; overflow: auto;  border-width: 2px 1px 2px 2px; border-color: #242424; border-style: solid;
+}
+
+.catalogs .dialogs h3 {
+	border: none; border-width: 2px 0 2px 0; border-style: solid; border-color: #242424; 
+}
+
+.catalogs .dialogs input {
+	border-radius: 0; margin: 0; width: 200px;
+}
+.catalogs .dialogs form {
+	padding: 10px 10px 0 10px;
+}
+.catalogs .dialogs label {
+	width: 50px;
+}
+
+.catalogs .dialogs .add {
+	text-align: right; padding-right: 21px;
+}
+.type-add-dialog, .manager-add-dialog {
+	width: 300px; position: absolute; border: 2px solid #242424; border-top: none;
+	left: 50%; top: 50%;
+}
+
+.type-add-dialog {
+	height: 110px; margin: -57px 0 0 -152px;
+}
+
+.manager-add-dialog {
+	height: 190px; margin: -97px 0 0 -152px;
+}
+
+/* Error */
+p.page-error {
+	color: red; font-size: 32px; text-align: center; margin: 20px 0 0 0;
+}
+
+tr.selected {
+	background: lightblue !important;
+}
+

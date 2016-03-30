@@ -1,0 +1,21 @@
+{
+  "name": "Catalog",
+  "description": "Catalog for organizations",
+  "author": {
+    "name": "Vadim Sokolovski",
+    "email": "sweetfrontend@gmail.com"
+  },
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "async": "^2.0.0-rc.1",
+    "express": "3.5.3",
+    "jade": "*",
+    "mongoose": "~4.4.4",
+    "nconf": "~0.8.4",
+    "winston": "~2.1.1"
+  }
+}
