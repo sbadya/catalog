@@ -13,4 +13,4 @@
 2. Из текущей директории перейдите в директорию catalog (__cd catalog__)
 3. Для запуска сервера выполните команду __node server__
 4. Приложение доступно по адресу http://localhost:8080
-5. При необходимости можно залить backup командой __mongorestore -d catalog ./backup/catalog_
+5. При необходимости можно залить backup командой __mongorestore -d catalog ./backup/catalog__
