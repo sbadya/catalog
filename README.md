@@ -9,5 +9,5 @@
 
 Инструкции по установке:
 
-1. Выполните команду git clone https://github.com/sbadya/catalog.git
+1. Выполните команду __git clone https://github.com/sbadya/catalog.git__
 2. 
