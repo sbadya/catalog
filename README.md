@@ -1,17 +1,13 @@
-# Справочник подразделений ВС РБ
-Данный справочник представляет собой приложение, состоящее из двух частей:
-- справочник подразделений
-- одельные справочники: справочник типов подразделений и руководителей
+# Catalog of the Armed Forces
 
-Основные операции: создание объектов, удаление, обновление, получение из базы данных
+Main operations are creation, deletion, updating, reading from DB.
 
-Вся информация хранится в СУБД mongodb.
-### Приложение выполнено с использованием стека MEAN
+### MEAN Stack
 
-Инструкции по установке:
+Instructions:
 
-1. Выполните команду __git clone__ https://github.com/sbadya/catalog.git
-2. Из текущей директории перейдите в директорию catalog (__cd catalog__)
-3. Для запуска сервера выполните команду __node server__
-4. Приложение доступно по адресу __http://localhost:8080__
-5. При необходимости можно залить backup командой __mongorestore -d catalog ./backup/catalog__
+1. Execute __git clone__ https://github.com/sbadya/catalog.git
+2. From current directory change directory catalog (__cd catalog__)
+3. Start server __node server__
+4. Go to url __http://localhost:8080__
+5. Restore data  __mongorestore -d catalog ./backup/catalog__
