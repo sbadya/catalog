@@ -1,7 +1,5 @@
 # Catalog of the Armed Forces
 
-Main operations are creation, deletion, updating, reading from DB.
-
 ### MEAN Stack
 
 Instructions:
